@@ -14,8 +14,7 @@ class JSONFormat {
     }
 
     readFeatures(content, options) {
-        const jsonText = typeof content === "string" ? content : JSON.stringify(content);
-        const parsed = JSON.parse(jsonText);
+        const parsed = typeof content === "string" ? JSON.parse(content) : content;
         const normalized = this.toFeatureCollection(parsed);
         if (!normalized.features.length) {
             return [];
